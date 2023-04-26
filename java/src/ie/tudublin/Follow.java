@@ -11,7 +11,7 @@ public class Follow {
         this.count = count;
     }
 
-    public String getWord() {//get the word
+    public String getWord() {//gets a random word
         return word;
     }
 
