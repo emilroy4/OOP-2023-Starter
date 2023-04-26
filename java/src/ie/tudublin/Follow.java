@@ -17,11 +17,11 @@ public class Follow {
         return count;
     }
 
-    public void setWord(String word) {
+    public void Word(String word) {
         this.word = word;
     }
 
-    public void setCount(int count) {
+    public void CountWord(int count) {
         this.count = count;
     }
 

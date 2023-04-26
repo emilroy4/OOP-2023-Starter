@@ -19,7 +19,7 @@ public class Word {
         return follows;
     }
 
-    public void setWord(String word) {
+    public void SetWord(String word) {
         this.word = word;
     }
 
