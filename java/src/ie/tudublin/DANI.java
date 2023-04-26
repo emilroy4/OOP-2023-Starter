@@ -80,14 +80,14 @@ public class DANI extends PApplet {
 	}
 
 	public void loadFile(String filename) {
-		String[] lines = loadStrings(filename);
+		String[] lines = loadStrings(filename);//This method is used to load a text file into a String array
 		String prevWord = null;
 
 		for (String line : lines) {
-			String[] words = split(line, ' ');
+			String[] words = split(line, ' ');//This method is used to split a string into an array of words.
 
 			for (String w : words) {
-				w = w.replaceAll("[^\\w\\s]", "").toLowerCase();
+				w = w.replaceAll("[^\\w\\s]", "").toLowerCase();//This method is used to remove punctuation characters and lowerfrom a word.
 
 				if (prevWord != null) {
 					Word wordObj = findWord(prevWord);
