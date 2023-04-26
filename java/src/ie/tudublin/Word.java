@@ -36,13 +36,5 @@ public class Word {
         return null;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(word).append(": ");
-        for (Follow follow : follows) {
-            sb.append(follow.toString()).append(" ");
-        }
-        return sb.toString().trim();
-    }
+ 
 }
