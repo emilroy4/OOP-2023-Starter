@@ -29,8 +29,5 @@ public class Follow {
         this.count++;
     }
 
-    @Override
-    public String toString() {
-        return word + "(" + count + ")";
-    }
+
 }
