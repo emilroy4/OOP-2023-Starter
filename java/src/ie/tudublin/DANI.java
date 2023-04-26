@@ -1,3 +1,4 @@
+//c21716601
 package ie.tudublin;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class DANI extends PApplet {
 		size(1000, 1000);
 		// fullScreen(SPAN);
 	}
-
+	//generate the sonnet
 	public String[] writeSonnet() {
 		String[] sonnet = new String[14];
 		for (int i = 0; i < 14; i++) {
@@ -47,6 +48,7 @@ public class DANI extends PApplet {
 		loadFile(filename);
 	}
 
+	
 	public void setup() {
 		colorMode(HSB);
 		initializeModel("shakespere.txt");
@@ -56,6 +58,7 @@ public class DANI extends PApplet {
 		}
 	}
 
+	//space changes sonnet
 	public void keyPressed() {
 		if (key == ' ') {
 			sonnet = writeSonnet();
@@ -118,6 +121,7 @@ public class DANI extends PApplet {
 		return null;
 	}
 
+		//prints to terminal
 	public void printModel() {
 		for (Word wordObj : model) {
 			println(wordObj.toString());
