@@ -12,7 +12,8 @@ public class DANI extends PApplet {
 		size(1000, 1000);
 		// fullScreen(SPAN);
 	}
-	//generate the sonnet
+
+	// generates the sonnet
 	public String[] writeSonnet() {
 		String[] sonnet = new String[14];
 		for (int i = 0; i < 14; i++) {
@@ -20,6 +21,8 @@ public class DANI extends PApplet {
 		}
 		return sonnet;
 	}
+
+	// Add words to the line until either 8 words are added or there is no next word
 
 	public String writeLine() {
 		StringBuilder sb = new StringBuilder();
@@ -35,6 +38,7 @@ public class DANI extends PApplet {
 		return sb.toString().trim();
 	}
 
+	//pick a random word from the txt file
 	public Word pickRandomFollow(Word word) {
 		if (word.getFollows().size() == 0) {
 			return null;
@@ -43,27 +47,26 @@ public class DANI extends PApplet {
 		String randomFollowWord = word.getFollows().get((int) random(word.getFollows().size())).getWord();
 		return findWord(randomFollowWord);
 	}
-	
+
 	public void initializeModel(String filename) {
 		loadFile(filename);
 	}
 
-	
 	public void setup() {
 		colorMode(HSB);
-		initializeModel("shakespere.txt");
-		sonnet = writeSonnet();
+		initializeModel("shakespere.txt");//load the shakespeare file
+		sonnet = writeSonnet();//generate sonnet
 		for (String line : sonnet) {
 			println(line);
 		}
 	}
 
-	//space changes sonnet
+	// spacebar changes sonnet
 	public void keyPressed() {
 		if (key == ' ') {
 			sonnet = writeSonnet();
 		}
-	}	
+	}
 
 	float off = 0;
 
@@ -73,16 +76,15 @@ public class DANI extends PApplet {
 		noStroke();
 		textSize(20);
 		textAlign(CENTER, CENTER);
-	
+
 		float lineHeight = height / 18;
 		float yOffset = (height - lineHeight * sonnet.length) / 2;
-	
+
 		for (int i = 0; i < sonnet.length; i++) {
 			text(sonnet[i], width / 2, yOffset + (i * lineHeight));
 		}
 	}
-	
-	
+
 	public void loadFile(String filename) {
 		String[] lines = loadStrings(filename);
 		String prevWord = null;
@@ -111,7 +113,7 @@ public class DANI extends PApplet {
 			}
 		}
 	}
-
+	//if the word matches it returns, if not it will return null
 	public Word findWord(String str) {
 		for (Word wordObj : model) {
 			if (wordObj.getWord().equals(str)) {
@@ -121,7 +123,7 @@ public class DANI extends PApplet {
 		return null;
 	}
 
-		//prints to terminal
+	// prints to terminal
 	public void printModel() {
 		for (Word wordObj : model) {
 			println(wordObj.toString());
