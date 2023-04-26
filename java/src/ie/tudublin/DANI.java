@@ -42,7 +42,7 @@ public class DANI extends PApplet {
 		String randomFollowWord = word.getFollows().get((int) random(word.getFollows().size())).getWord();
 		return findWord(randomFollowWord);
 	}
-	
+
 	public void initializeModel(String filename) {
 		loadFile(filename);
 	}
@@ -60,7 +60,7 @@ public class DANI extends PApplet {
 		if (key == ' ') {
 			sonnet = writeSonnet();
 		}
-	}	
+	}
 
 	float off = 0;
 
@@ -70,16 +70,15 @@ public class DANI extends PApplet {
 		noStroke();
 		textSize(20);
 		textAlign(CENTER, CENTER);
-	
-		float lineHeight = height / 18;
+
+		float lineHeight = height / 30;
 		float yOffset = (height - lineHeight * sonnet.length) / 2;
-	
+
 		for (int i = 0; i < sonnet.length; i++) {
 			text(sonnet[i], width / 2, yOffset + (i * lineHeight));
 		}
 	}
-	
-	
+
 	public void loadFile(String filename) {
 		String[] lines = loadStrings(filename);
 		String prevWord = null;
