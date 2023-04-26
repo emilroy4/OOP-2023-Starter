@@ -11,25 +11,24 @@ public class Follow {
         this.count = count;
     }
 
-    public String getWord() {//gets a random word
+    public String getWord() {// gets a random word
         return word;
     }
 
-    public int getCount() {//get count 
+    public int getCount() {// get count
         return count;
     }
 
-    public void Word(String word) {//sets the word
+    public void Word(String word) {// sets the word
         this.word = word;
     }
 
-    public void CountWord(int count) {//sets word count
+    public void CountWord(int count) {// sets word count
         this.count = count;
     }
 
-    public void incrementCount() {//increments the count value by 1
+    public void incrementCount() {// increments the count value by 1
         this.count++;
     }
-
 
 }

@@ -38,7 +38,7 @@ public class DANI extends PApplet {
 		return sb.toString().trim();
 	}
 
-	//pick a random word from the txt file
+	// pick a random word from the txt file
 	public Word pickRandomFollow(Word word) {
 		if (word.getFollows().size() == 0) {
 			return null;
@@ -54,8 +54,8 @@ public class DANI extends PApplet {
 
 	public void setup() {
 		colorMode(HSB);
-		initializeModel("shakespere.txt");//load the shakespeare file
-		sonnet = writeSonnet();//generate sonnet
+		initializeModel("shakespere.txt");// load the shakespeare file
+		sonnet = writeSonnet();// generate sonnet
 		for (String line : sonnet) {
 			println(line);
 		}
@@ -113,7 +113,8 @@ public class DANI extends PApplet {
 			}
 		}
 	}
-	//if the word matches it returns, if not it will return null
+
+	// if the word matches it returns, if not it will return null
 	public Word findWord(String str) {
 		for (Word wordObj : model) {
 			if (wordObj.getWord().equals(str)) {
