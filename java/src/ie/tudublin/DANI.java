@@ -42,14 +42,14 @@ public class DANI extends PApplet {
 		String randomFollowWord = word.getFollows().get((int) random(word.getFollows().size())).getWord();
 		return findWord(randomFollowWord);
 	}
-
+	
 	public void initializeModel(String filename) {
 		loadFile(filename);
 	}
 
 	public void setup() {
 		colorMode(HSB);
-		initializeModel("poem.txt");
+		initializeModel("shakespere.txt");
 		sonnet = writeSonnet();
 		for (String line : sonnet) {
 			println(line);
@@ -60,7 +60,7 @@ public class DANI extends PApplet {
 		if (key == ' ') {
 			sonnet = writeSonnet();
 		}
-	}
+	}	
 
 	float off = 0;
 
@@ -70,24 +70,25 @@ public class DANI extends PApplet {
 		noStroke();
 		textSize(20);
 		textAlign(CENTER, CENTER);
-
-		float lineHeight = height / 30;
+	
+		float lineHeight = height / 18;
 		float yOffset = (height - lineHeight * sonnet.length) / 2;
-
+	
 		for (int i = 0; i < sonnet.length; i++) {
 			text(sonnet[i], width / 2, yOffset + (i * lineHeight));
 		}
 	}
-
+	
+	
 	public void loadFile(String filename) {
-		String[] lines = loadStrings(filename);//This method is used to load a text file into a String array
+		String[] lines = loadStrings(filename);
 		String prevWord = null;
 
 		for (String line : lines) {
-			String[] words = split(line, ' ');//This method is used to split a string into an array of words.
+			String[] words = split(line, ' ');
 
 			for (String w : words) {
-				w = w.replaceAll("[^\\w\\s]", "").toLowerCase();//This method is used to remove punctuation characters and lowerfrom a word.
+				w = w.replaceAll("[^\\w\\s]", "").toLowerCase();
 
 				if (prevWord != null) {
 					Word wordObj = findWord(prevWord);
